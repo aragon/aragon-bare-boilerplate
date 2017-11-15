@@ -1,0 +1,15 @@
+{
+  "name": "aragon-bare-boilerplate",
+  "version": "1.0.0",
+  "dependencies": {
+    "@aragon/core": "^1.0.2",
+    "@aragon/node-aragon": "^1.1.0"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "Aragon Institution MTU <contact@aragon.one>",
+  "contributors": [
+    "Oliver Nordbjerg <oliver@aragon.one>"
+  ],
+  "license": "GPL-3.0"
+}
