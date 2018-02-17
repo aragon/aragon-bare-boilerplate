@@ -1,5 +1,8 @@
 # Aragon Bare Boilerplate
 
+> 🕵️ [Find more boilerplates using GitHub](https://github.com/search?q=topic:aragon-boilerplate) | 
+> ✨ [Official boilerplates](https://github.com/search?q=topic:aragon-boilerplate+org:aragon)
+
 Bare boilerplate for Aragon applications.
 
 This boilerplate *only* includes the contract interfaces and `@aragon/client`, along with the two required application manifests: `manifest.json` and `module.json`.

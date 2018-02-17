@@ -1,15 +1,18 @@
 {
   "name": "aragon-bare-boilerplate",
   "version": "1.0.0",
+  "description": "",
   "dependencies": {
-    "@aragon/core": "^1.0.2",
-    "@aragon/node-aragon": "^1.1.0"
+    "@aragon/os": "^3.0.2"
   },
-  "scripts": {},
+  "devDependencies": {
+    "@aragon/cli": "^2.0.0"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "compile": "truffle compile",
+    "publish": "aragon-dev-cli publish"
+  },
   "keywords": [],
-  "author": "Aragon Institution MTU <contact@aragon.one>",
-  "contributors": [
-    "Oliver Nordbjerg <oliver@aragon.one>"
-  ],
   "license": "GPL-3.0"
 }
