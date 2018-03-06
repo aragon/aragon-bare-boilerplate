@@ -1,7 +1,4 @@
 {
-  "name": "aragon-bare-boilerplate",
-  "version": "1.0.0",
-  "description": "",
   "dependencies": {
     "@aragon/os": "^3.0.2"
   },
@@ -11,7 +8,8 @@
   "scripts": {
     "test": "truffle test",
     "compile": "truffle compile",
-    "publish": "aragon-dev-cli publish"
+    "deploy": "truffle exec scripts/deploy.js --network rpc",
+    "publish": "aragon publish \"$(npm run deploy | tail -n 1)\""
   },
   "keywords": [],
   "license": "GPL-3.0"
