@@ -5,7 +5,7 @@
 
 Bare boilerplate for Aragon applications.
 
-This boilerplate *only* includes the contract interfaces and `@aragon/client`, along with the two required application manifests: `manifest.json` and `module.json`.
+This boilerplate *only* includes the contract interfaces and `@aragon/client`, along with the two required application manifests: `manifest.json` and `arapp.json`.
 
 This boilerplate is ideal for building applications that do not use React or Truffle.
 
