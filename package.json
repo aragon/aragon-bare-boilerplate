@@ -8,6 +8,7 @@
   "scripts": {
     "test": "truffle test",
     "compile": "truffle compile",
+    "start": "aragon run",
     "deploy": "truffle exec scripts/deploy.js --network rpc",
     "publish": "aragon publish \"$(npm run deploy | tail -n 1)\""
   },
