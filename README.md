@@ -20,7 +20,7 @@ aragon init foo.aragonpm.test bare
 ### npm Scripts
 
 - **test**: Runs your Truffle tests
-- **compile**: Compiles your contracts
+- **build**: Compiles your contracts
 - **start**: Runs your app locally
 - **deploy**: Deploys your app smart contract to a local chain
 - **publish**: Publishes a new version of your app
