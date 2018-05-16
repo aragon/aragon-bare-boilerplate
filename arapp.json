@@ -1,6 +1,12 @@
 {
-  "appName": "test-app.aragonpm.eth",
+  "appName": "app.aragonpm.eth",
   "version": "1.0.0",
-  "roles": [],
+  "roles": [
+    {
+      "name": "Dummy role",
+      "id": "DUMMY_ROLE",
+      "params": []
+    }
+  ],
   "path": "contracts/App.sol"
 }
