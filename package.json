@@ -17,8 +17,8 @@
     "build:script": "parcel build app/script.js -d dist/",
     "build": "npm run build:app && npm run build:script",
     "start": "aragon run",
-    "deploy": "truffle exec scripts/deploy.js --network development",
-    "publish": "aragon publish \"$(npm run deploy | tail -n 1)\""
+    "deploy": "aragon deploy",
+    "publish": "aragon publish"
   },
   "keywords": [],
   "license": "GPL-3.0"
