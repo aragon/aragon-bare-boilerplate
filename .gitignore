@@ -1,2 +1,7 @@
+# Dependencies
 node_modules
-build
+
+# Build dirs
+.cache/
+build/
+dist/
