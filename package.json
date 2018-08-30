@@ -18,7 +18,7 @@
     "build": "npm run build:app && npm run build:script",
     "start": "aragon run",
     "deploy": "aragon deploy",
-    "publish": "apm publish"
+    "publish": "aragon apm publish"
   },
   "keywords": [],
   "license": "MIT"
