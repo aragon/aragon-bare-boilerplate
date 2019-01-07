@@ -20,7 +20,7 @@ contract App is AragonApp {
     ////               ....
     ////
     ////  Build something beautiful.
-    function initialize(string _name) onlyInit {
+    function initialize() public onlyInit {
         initialized();
     }
 }
