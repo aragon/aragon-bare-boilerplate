@@ -5,6 +5,7 @@ const app = new Aragon()
 const initialState = {
   dummyValue: 0
 }
+
 app.store((state, event) => {
   if (state === null) state = initialState
 
