@@ -11,7 +11,7 @@
     "parcel-bundler": "^1.11.0"
   },
   "scripts": {
-    "prepublish": "aragon contracts compile",
+    "prepublishOnly": "aragon contracts compile",
     "start": "aragon run",
     "test": "aragon contracts test",
     "compile": "aragon contracts compile",
