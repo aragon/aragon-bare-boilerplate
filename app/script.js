@@ -1,12 +1,12 @@
-import Aragon from '@aragon/client'
+import AragonApi from '@aragon/api'
 
-const app = new Aragon()
+const api = new AragonApi()
 
 const initialState = {
-  dummyValue: 0
+  dummyValue: 0,
 }
 
-app.store((state, event) => {
+api.store((state, event) => {
   if (state === null) state = initialState
 
   switch (event.event) {
