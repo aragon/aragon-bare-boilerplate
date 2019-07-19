@@ -3,21 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "@aragon/client": "^1.1.0",
-    "@aragon/os": "^4.0.1"
+    "@aragon/api": "^1.1.0",
+    "@aragon/os": "^4.2.1",
+    "@aragon/apps-shared-minime": "^1.0.1",
+    "@aragon/apps-token-manager": "2.1.0",
+    "@aragon/apps-voting": "2.1.0"
   },
   "devDependencies": {
-    "@aragon/cli": "^5.4.0",
-    "parcel-bundler": "^1.11.0"
+    "@aragon/cli": "^5.9.7",
+    "parcel-bundler": "^1.12.3"
   },
   "scripts": {
     "prepublishOnly": "aragon contracts compile",
     "start": "aragon run",
+    "start:template": "npm run start -- --template Template --template-init @ARAGON_ENS",
     "test": "aragon contracts test",
     "compile": "aragon contracts compile",
     "deploy": "aragon deploy",
     "build:app": "parcel build app/index.html -d dist/ --public-url \".\" --no-cache",
     "build:script": "parcel build app/script.js -d dist/ --no-cache",
+    "watch:script": "parcel watch app/script.js -d dist/ --no-hmr",
+    "devserver": "parcel serve app/index.html -p 8001 -d dist/ --no-cache",
+    "start:app": "npm run build:script -- --no-minify && npm run devserver",
     "build": "npm run build:app && npm run build:script",
     "publish:patch": "aragon apm publish patch",
     "publish:minor": "aragon apm publish minor",
