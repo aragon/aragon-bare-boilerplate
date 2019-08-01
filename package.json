@@ -7,12 +7,12 @@
     "@aragon/os": "^4.0.1"
   },
   "devDependencies": {
-    "@aragon/cli": "^5.4.0",
+    "@aragon/cli": "^6.0.0",
     "parcel-bundler": "^1.11.0"
   },
   "scripts": {
     "prepublishOnly": "aragon contracts compile",
-    "start": "aragon run",
+    "start": "aragon run --files dist",
     "test": "aragon contracts test",
     "compile": "aragon contracts compile",
     "deploy": "aragon deploy",
