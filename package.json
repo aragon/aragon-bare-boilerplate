@@ -15,7 +15,6 @@
     "truffle": "4.1.14"
   },
   "scripts": {
-    "prepublishOnly": "aragon contracts compile",
     "start": "aragon run --files dist",
     "test": "cross-env TRUFFLE_TEST=true npm run ganache-cli:test",
     "compile": "aragon contracts compile",
