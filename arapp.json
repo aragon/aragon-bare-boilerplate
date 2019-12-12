@@ -18,13 +18,8 @@
       "network": "rinkeby"
     },
     "staging": {
-<<<<<<< HEAD
-      "registry": "0x98df287b6c145399aaa709692c8d308357bc085d",
-      "appName": "placeholder-app-name-staging.open.aragonpm.eth",
-=======
       "registry": "0xfe03625ea880a8cba336f9b5ad6e15b0a3b5a939",
       "appName": "placeholder-app-name.open.aragonpm.eth",
->>>>>>> upstream/master
       "wsRPC": "wss://rinkeby.eth.aragon.network/ws",
       "network": "rinkeby"
     },
