@@ -1,8 +1,33 @@
+# Editor files
+.vscode
+
 # Dependencies
 node_modules
+# this is created by windows when installing go-ipfs
+ipfs.cmd
 
+# Artifacts
+dist
+build
+
+# Tests and coverage
+.tmp
+coverage
+.nyc_output
+
+# Tools
+lerna-debug.log
+
+# Extra
+packages/aragon-cli/src/knownRoles.json
+
+<<<<<<< HEAD
 # Build dirs
 .cache/
 .tmp/
 build/
 dist/
+=======
+## Lockfiles that are not shrinkwraps
+package-lock.json
+>>>>>>> a3df05fb470814bec3296772b4a9b6121dcd1a35
