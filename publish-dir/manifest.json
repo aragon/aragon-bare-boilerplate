@@ -1,0 +1,12 @@
+{
+  "name": "Application",
+  "description": "An application for Aragon",
+  "icons": [
+    {
+      "src": "/images/icon.png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/index.html",
+  "script": "/script.js"
+}

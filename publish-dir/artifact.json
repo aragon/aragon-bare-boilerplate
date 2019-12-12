@@ -1,0 +1,315 @@
+{
+	"roles": [
+		{
+			"name": "Dummy role",
+			"id": "DUMMY_ROLE",
+			"params": [],
+			"bytes": "0x139065b6093ba395ab03ec0d5533040c1e639dcdcc68a426a0bb26abcaf98aa9"
+		}
+	],
+	"environments": {
+		"default": {
+			"network": "development",
+			"appName": "placeholder-app-name.open.aragonpm.eth"
+		},
+		"rinkeby": {
+			"registry": "0x98df287b6c145399aaa709692c8d308357bc085d",
+			"appName": "placeholder-app-name.open.aragonpm.eth",
+			"wsRPC": "wss://rinkeby.eth.aragon.network/ws",
+			"network": "rinkeby"
+		},
+		"staging": {
+			"registry": "0x98df287b6c145399aaa709692c8d308357bc085d",
+			"appName": "placeholder-app-name-staging.open.aragonpm.eth",
+			"wsRPC": "wss://rinkeby.eth.aragon.network/ws",
+			"network": "rinkeby"
+		},
+		"mainnet": {
+			"registry": "0x314159265dd8dbb310642f98f50c066173c1259b",
+			"appName": "placeholder-app-name.open.aragonpm.eth",
+			"wsRPC": "wss://mainnet.eth.aragon.network/ws",
+			"network": "mainnet"
+		},
+		"ropsten": {
+			"registry": "0x6afe2cacee211ea9179992f89dc61ff25c61e923",
+			"appName": "placeholder-app-name.open.aragonpm.eth",
+			"wsRPC": "wss://ropsten.infura.io/ws",
+			"network": "ropsten"
+		}
+	},
+	"path": "contracts/App.sol",
+	"env": {
+		"network": "development",
+		"appName": "placeholder-app-name.open.aragonpm.eth"
+	},
+	"appName": "placeholder-app-name.open.aragonpm.eth",
+	"appId": "0xe638041b5fb820c0d4461cf8e84e60cbbbf27736e7ab1021ca1e8afb54f84784",
+	"abi": [
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "hasInitialized",
+			"outputs": [
+				{
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"name": "_script",
+					"type": "bytes"
+				}
+			],
+			"name": "getEVMScriptExecutor",
+			"outputs": [
+				{
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "getRecoveryVault",
+			"outputs": [
+				{
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"name": "token",
+					"type": "address"
+				}
+			],
+			"name": "allowRecoverability",
+			"outputs": [
+				{
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "appId",
+			"outputs": [
+				{
+					"name": "",
+					"type": "bytes32"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "getInitializationBlock",
+			"outputs": [
+				{
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"name": "_token",
+					"type": "address"
+				}
+			],
+			"name": "transferToVault",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"name": "_sender",
+					"type": "address"
+				},
+				{
+					"name": "_role",
+					"type": "bytes32"
+				},
+				{
+					"name": "_params",
+					"type": "uint256[]"
+				}
+			],
+			"name": "canPerform",
+			"outputs": [
+				{
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "getEVMScriptRegistry",
+			"outputs": [
+				{
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "kernel",
+			"outputs": [
+				{
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "isPetrified",
+			"outputs": [
+				{
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"name": "executor",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"name": "script",
+					"type": "bytes"
+				},
+				{
+					"indexed": false,
+					"name": "input",
+					"type": "bytes"
+				},
+				{
+					"indexed": false,
+					"name": "returnData",
+					"type": "bytes"
+				}
+			],
+			"name": "ScriptResult",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"name": "vault",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "RecoverToVault",
+			"type": "event"
+		},
+		{
+			"constant": false,
+			"inputs": [],
+			"name": "initialize",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	],
+	"deployment": {
+		"contractName": "App",
+		"compiledAt": "2019-12-12T17:32:12.703Z",
+		"compiler": {
+			"name": "solc",
+			"version": "0.4.24+commit.e67f0147.Emscripten.clang",
+			"optimizer": {
+				"enabled": true,
+				"runs": 10000
+			}
+		},
+		"flattenedCode": "./code.sol",
+		"transactionHash": "0x9d2702a55dd239d699f66a8c1a3bc83b71e8acd84300309f767fe2e3c951b716"
+	},
+	"functions": [
+		{
+			"sig": "initialize()",
+			"roles": [],
+			"notice": null,
+			"abi": {
+				"constant": false,
+				"inputs": [],
+				"name": "initialize",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		}
+	],
+	"deprecatedFunctions": {}
+}

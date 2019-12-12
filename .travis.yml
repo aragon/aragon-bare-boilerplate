@@ -1,0 +1,22 @@
+language: node_js
+cache: npm
+branches:
+  only:
+    - master
+notifications:
+  email: false
+node_js:
+  # - '12'
+  - '11'
+  - '10'
+before_script:
+  - npm prune
+install:
+  - npm install
+script:
+  - npm run lint
+  - npm run pretest
+  - npm run test:coverage
+  - npm run posttest
+after_success:
+  - test $TRAVIS_NODE_VERSION = "11" && npm run report-coverage

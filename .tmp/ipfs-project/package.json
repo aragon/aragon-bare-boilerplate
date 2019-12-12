@@ -1,0 +1,6 @@
+{
+  "name": "ipfs-project",
+  "dependencies": {
+    "go-ipfs": "^0.4.22"
+  }
+}

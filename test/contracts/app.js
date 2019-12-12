@@ -26,9 +26,7 @@ contract('App', ([appManager, user]) => {
       false, // setDefault - Whether the app proxy is the default proxy.
       { from: appManager }
     )
-    app = App.at(
-      getEventArgument(instanceReceipt, 'NewAppProxy', 'proxy')
-    )
+    app = App.at(getEventArgument(instanceReceipt, 'NewAppProxy', 'proxy'))
 
     // Set up the app's permissions.
     // await acl.createPermission(
