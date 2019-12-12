@@ -1,9 +1,10 @@
-const { killProcessOnPort } = require('../packages/toolkit/dist/node')
+// const { killProcessOnPort } = require('@aragon/toolkit/dist/node')
+const { killProcessOnPort } = require('@aragon/cli').default // TODO remove .default when the new cli is published
 
 const IPFS_API_PORT = 5001
 const DEVCHAIN_PORT = 8545
 
-const LOGGER_PREFIX = '[cli-monorepo:posttest]'
+const LOGGER_PREFIX = '[placeholder-app-name:posttest]'
 
 const logger = (...messages) => {
   console.log(LOGGER_PREFIX, ...messages)

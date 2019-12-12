@@ -1,7 +1,7 @@
 const { ensureLocalDaemon } = require('@aragon/toolkit/dist/ipfs')
 const { ensureDevchain } = require('@aragon/toolkit/dist/ganache')
 
-const LOGGER_PREFIX = '[cli-monorepo:pretest]'
+const LOGGER_PREFIX = '[placeholder-app-name:pretest]'
 
 const IPFS_API_PORT = 5001
 const IPFS_GATEWAY_PORT = 8080

@@ -8,13 +8,14 @@
     "@aragon/truffle-config-v4": "^1.0.0"
   },
   "devDependencies": {
-    "@aragon/cli": "^7.0.0-beta.1",
+    "@aragon/cli": "^7.0.0-beta.2",
     "@aragon/test-helpers": "^2.0.0",
     "@babel/core": "^7.7.5",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.6",
     "@babel/register": "^7.7.4",
     "ava": "^2.4.0",
+    "byte-size": "^6.2.0",
     "cross-env": "^5.2.0",
     "eth-ens-namehash": "^2.0.8",
     "execa": "^3.4.0",
