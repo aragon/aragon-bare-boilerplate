@@ -14,7 +14,7 @@ test('should publish an aragon app directory successfully', async t => {
   const publishDirPath = path.resolve(`${testSandbox}/publish-dir`)
 
   // act
-  const publishProcess = await startProcess({
+  const { output } = await startProcess({
     cmd: 'aragon',
     args: [
       'apm',
@@ -34,8 +34,6 @@ test('should publish an aragon app directory successfully', async t => {
     timeout: PUBLISH_TIMEOUT,
   })
 
-  // cleanup
-  await publishProcess.exit()
 
   // check the generated artifact
   const artifactPath = path.resolve(publishDirPath, ARTIFACT_FILE)
@@ -48,19 +46,19 @@ test('should publish an aragon app directory successfully', async t => {
   const manifest = JSON.parse(fs.readFileSync(manifestPath))
 
   // delete some output sections that are not deterministic
-  const publishVersion = publishProcess.stdout.match(/v[0-9]+.0.0 :/)[0]
+  const publishVersion = output.match(/v[0-9]+.0.0 :/)[0]
 
-  const buildScriptOutput = publishProcess.stdout.substring(
-    publishProcess.stdout.indexOf('Building frontend [started]'),
-    publishProcess.stdout.indexOf('Building frontend [completed]')
+  const buildScriptOutput = output.substring(
+    output.indexOf('Building frontend [started]'),
+    output.indexOf('Building frontend [completed]')
   )
 
-  const appDeploymentOutput = publishProcess.stdout.substring(
-    publishProcess.stdout.indexOf('Publish intent [completed]'),
-    publishProcess.stdout.indexOf('Publish foobar.open.aragonpm.eth [started]')
+  const appDeploymentOutput = output.substring(
+    output.indexOf('Publish intent [completed]'),
+    output.indexOf('Publish foobar.open.aragonpm.eth [started]')
   )
 
-  const outputToSnapshot = publishProcess.stdout
+  const outputToSnapshot = output
     .replace(buildScriptOutput, '[deleted-build-script-output]')
     .replace(
       appDeploymentOutput,

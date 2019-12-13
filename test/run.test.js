@@ -6,14 +6,8 @@ import { startProcess, normalizeOutput } from '@aragon/cli'
 const RUN_TIMEOUT = 180000 // 3min
 
 test('should run an aragon app successfully on IPFS', async t => {
-  // Node.js 11 fix (https://github.com/aragon/aragon-cli/issues/731)
-  fs.writeFileSync('truffle.js', `
-    module.exports = require('@aragon/os/truffle-config'); 
-    module.exports.solc.optimizer.enabled = false;
-  `)
-
   // act
-  const { stdout, exit } = await startProcess({
+  const { output } = await startProcess({
     cmd: 'npm',
     args: ['run', 'start'],
     execaOpts: {
@@ -27,7 +21,7 @@ test('should run an aragon app successfully on IPFS', async t => {
   await new Promise(resolve => setTimeout(resolve, 2 * 60 * 1000)) // TODO move to utils
 
   // finding the DAO address
-  const daoAddress = stdout.match(/DAO address: (0x[a-fA-F0-9]{40})/)[1]
+  const daoAddress = output.match(/DAO address: (0x[a-fA-F0-9]{40})/)[1]
 
   // TODO: fetch the counter app instead
   const fetchResult = await fetch(`http://localhost:3000/#/${daoAddress}`)
@@ -36,7 +30,7 @@ test('should run an aragon app successfully on IPFS', async t => {
   // cleanup
   await exit()
 
-  const outputToSnapshot = stdout.replace(
+  const outputToSnapshot = output.replace(
     new RegExp(daoAddress, 'g'),
     '[deleted-dao-address]'
   )
