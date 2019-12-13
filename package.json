@@ -29,6 +29,7 @@
     "publish:minor": "aragon apm publish minor --files dist",
     "publish:major": "aragon apm publish major --files dist",
     "test": "ava --verbose",
+    "clean": "git clean -fixd",
     "pretest": "node test/scripts/setup-tests.js",
     "posttest": "node test/scripts/teardown-tests.js"
   },

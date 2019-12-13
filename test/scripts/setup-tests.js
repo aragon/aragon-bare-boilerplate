@@ -1,5 +1,5 @@
-const { ensureLocalDaemon } = require('@aragon/toolkit/dist/ipfs')
-const { ensureDevchain } = require('@aragon/toolkit/dist/ganache')
+const { ensureLocalDaemon } = require('@aragon/cli')
+const { ensureDevchain } = require('@aragon/cli')
 
 const LOGGER_PREFIX = '[placeholder-app-name:pretest]'
 

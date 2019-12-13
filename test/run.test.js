@@ -1,7 +1,6 @@
 import test from 'ava'
 import fetch from 'node-fetch'
-import { startProcess } from '@aragon/toolkit/dist/node'
-import { normalizeOutput } from '@aragon/cli/dist/util'
+import { startProcess, normalizeOutput } from '@aragon/cli'
 
 const RUN_TIMEOUT = 180000 // 3min
 

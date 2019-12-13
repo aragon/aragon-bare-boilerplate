@@ -1,8 +1,7 @@
 import test from 'ava'
 import fs from 'fs-extra'
 import path from 'path'
-import { startProcess } from '@aragon/toolkit/dist/node'
-import { normalizeOutput } from '@aragon/cli/dist/util'
+import { startProcess, normalizeOutput } from '@aragon/cli'
 
 const ARTIFACT_FILE = 'artifact.json'
 const MANIFEST_FILE = 'manifest.json'
