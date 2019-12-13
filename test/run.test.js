@@ -1,6 +1,5 @@
 import test from 'ava'
 import fs from 'fs'
-import path from 'path'
 import fetch from 'node-fetch'
 import { startProcess, normalizeOutput } from '@aragon/cli'
 
@@ -8,7 +7,7 @@ const RUN_TIMEOUT = 180000 // 3min
 
 test('should run an aragon app successfully on IPFS', async t => {
   // Node.js 11 fix (https://github.com/aragon/aragon-cli/issues/731)
-  fs.writeFileSync(path.join(testSandbox, projectName, 'truffle.js'), `
+  fs.writeFileSync('truffle.js', `
     module.exports = require('@aragon/os/truffle-config'); 
     module.exports.solc.optimizer.enabled = false;
   `)
