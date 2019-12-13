@@ -7,7 +7,7 @@ const RUN_TIMEOUT = 180000 // 3min
 
 test('should run an aragon app successfully on IPFS', async t => {
   // act
-  const { output } = await startProcess({
+  const { output, kill } = await startProcess({
     cmd: 'npm',
     args: ['run', 'start'],
     execaOpts: {
@@ -15,6 +15,7 @@ test('should run an aragon app successfully on IPFS', async t => {
     },
     readyOutput: 'Opening http://localhost:3000/#/',
     timeout: RUN_TIMEOUT,
+    logger: console.log
   })
 
   // hack so the wrapper has time to start
@@ -28,7 +29,7 @@ test('should run an aragon app successfully on IPFS', async t => {
   const fetchBody = await fetchResult.text()
 
   // cleanup
-  await exit()
+  await kill()
 
   const outputToSnapshot = output.replace(
     new RegExp(daoAddress, 'g'),

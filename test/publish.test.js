@@ -25,13 +25,14 @@ test('should publish an aragon app directory successfully', async t => {
       '--publish-dir',
       publishDirPath,
       '--skip-confirmation',
-      '--no-propagate-content',
+      '--no-propagate-content'
     ],
     execaOpts: {
       localDir: '.',
     },
     readyOutput: 'Successfully published',
     timeout: PUBLISH_TIMEOUT,
+    logger: console.log
   })
 
 
