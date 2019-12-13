@@ -1,5 +1,4 @@
-// const { killProcessOnPort } = require('@aragon/toolkit/dist/node')
-const { killProcessOnPort } = require('@aragon/cli').default // TODO remove .default when the new cli is published
+const { killProcessOnPort } = require('@aragon/cli')
 
 const IPFS_API_PORT = 5001
 const DEVCHAIN_PORT = 8545

@@ -1,16 +1,21 @@
 import test from 'ava'
 import fs from 'fs-extra'
 import path from 'path'
-import { startBackgroundProcess, normalizeOutput } from '../util'
+import { startProcess } from '@aragon/toolkit/dist/node'
+import { normalizeOutput } from '@aragon/cli/dist/util'
 
 const ARTIFACT_FILE = 'artifact.json'
 const MANIFEST_FILE = 'manifest.json'
 
+const PUBLISH_TIMEOUT = 120000 // 2min
+
+const testSandbox = './.tmp'
+
 test('should publish an aragon app directory successfully', async t => {
-  const publishDirPath = 'publish-dir'
+  const publishDirPath = path.resolve(`${testSandbox}/publish-dir`)
 
   // act
-  const publishProcess = await startBackgroundProcess({
+  const publishProcess = await startProcess({
     cmd: 'aragon',
     args: [
       'apm',
@@ -27,6 +32,7 @@ test('should publish an aragon app directory successfully', async t => {
       localDir: '.',
     },
     readyOutput: 'Successfully published',
+    timeout: PUBLISH_TIMEOUT,
   })
 
   // cleanup

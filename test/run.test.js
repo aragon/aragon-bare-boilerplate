@@ -1,26 +1,20 @@
 import test from 'ava'
 import fetch from 'node-fetch'
-import { startBackgroundProcess, normalizeOutput } from '../util'
-import fs from 'fs'
+import { startProcess } from '@aragon/toolkit/dist/node'
+import { normalizeOutput } from '@aragon/cli/dist/util'
+
+const RUN_TIMEOUT = 180000 // 3min
 
 test('should run an aragon app successfully on IPFS', async t => {
-  // // Node.js 11 fix (https://github.com/aragon/aragon-cli/issues/731)
-  // fs.writeFileSync(
-  //   'truffle.js',
-  //   `
-  //   module.exports = require('@aragon/os/truffle-config');
-  //   module.exports.solc.optimizer.enabled = false;
-  // `
-  // )
-
   // act
-  const { stdout, exit } = await startBackgroundProcess({
+  const { stdout, exit } = await startProcess({
     cmd: 'npm',
     args: ['run', 'start'],
     execaOpts: {
       localDir: '.',
     },
     readyOutput: 'Opening http://localhost:3000/#/',
+    timeout: RUN_TIMEOUT,
   })
 
   // hack so the wrapper has time to start

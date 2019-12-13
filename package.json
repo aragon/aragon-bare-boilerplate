@@ -8,48 +8,38 @@
     "@aragon/truffle-config-v4": "^1.0.0"
   },
   "devDependencies": {
-    "@aragon/cli": "^7.0.0-beta.2",
-    "@aragon/test-helpers": "^2.0.0",
+    "@aragon/cli": "^7.0.0-beta.8",
     "@babel/core": "^7.7.5",
-    "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.6",
     "@babel/register": "^7.7.4",
     "ava": "^2.4.0",
-    "byte-size": "^6.2.0",
-    "cross-env": "^5.2.0",
-    "eth-ens-namehash": "^2.0.8",
     "execa": "^3.4.0",
-    "kill-port": "^1.6.0",
+    "node-fetch": "^2.6.0",
     "parcel-bundler": "^1.11.0",
-    "ps-tree": "^1.2.0",
     "truffle": "4.1.14"
   },
   "scripts": {
     "start": "aragon run --files dist",
-    "test:contracts": "truffle test --network rpc",
-    "test": "ava --verbose",
-    "pretest": "node scripts/setup-integration-tests.js",
-    "posttest": "node scripts/teardown-integration-tests.js",
-    "compile": "truffle compile",
-    "deploy": "aragon deploy",
+    "versions": "aragon apm versions",
+    "build": "npm run build:app && npm run build:script",
     "build:app": "parcel build app/index.html -d dist/ --public-url \".\" --no-cache",
     "build:script": "parcel build app/script.js -d dist/ --no-cache",
-    "build": "npm run build:app && npm run build:script",
+    "deploy": "aragon deploy",
     "publish:patch": "aragon apm publish patch --files dist",
     "publish:minor": "aragon apm publish minor --files dist",
     "publish:major": "aragon apm publish major --files dist",
-    "versions": "aragon apm versions",
-    "ganache-cli:test": "sh ./node_modules/@aragon/test-helpers/ganache-cli.sh"
+    "test": "ava --verbose",
+    "pretest": "node test/scripts/setup-tests.js",
+    "posttest": "node test/scripts/teardown-tests.js"
   },
   "keywords": [],
   "license": "MIT",
   "ava": {
     "require": [
-      "@babel/polyfill",
       "@babel/register"
     ],
     "files": [
-      "test/**/*.test.js"
+      "test/*.test.js"
     ]
   },
   "babel": {
