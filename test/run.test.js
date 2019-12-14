@@ -1,25 +1,30 @@
 import test from 'ava'
-import fs from 'fs'
+import path from 'path'
 import fetch from 'node-fetch'
-import { startProcess, normalizeOutput } from '@aragon/cli'
+import { normalizeOutput } from '@aragon/cli/dist/util'
+import { startProcess } from '@aragon/cli'
 
-const RUN_TIMEOUT = 180000 // 3min
+const RUN_CMD_TIMEOUT = 1800000 // 3min
+
+const testSandbox = './.tmp/run'
 
 test('should run an aragon app successfully on IPFS', async t => {
+  const publishDirPath = path.resolve(`${testSandbox}/publish-dir`)
+
   // act
   const { output, kill } = await startProcess({
     cmd: 'npm',
-    args: ['run', 'start'],
+    args: ['run', 'start', '--', '--publish-dir', publishDirPath],
     execaOpts: {
       localDir: '.',
     },
     readyOutput: 'Opening http://localhost:3000/#/',
-    timeout: RUN_TIMEOUT,
-    logger: console.log
+    timeout: RUN_CMD_TIMEOUT,
+    logger: console.log,
   })
 
   // hack so the wrapper has time to start
-  await new Promise(resolve => setTimeout(resolve, 2 * 60 * 1000)) // TODO move to utils
+  await new Promise(resolve => setTimeout(resolve, 2 * 20 * 1000)) // TODO move to utils
 
   // finding the DAO address
   const daoAddress = output.match(/DAO address: (0x[a-fA-F0-9]{40})/)[1]

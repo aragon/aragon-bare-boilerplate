@@ -1,14 +1,15 @@
 import test from 'ava'
 import fs from 'fs-extra'
 import path from 'path'
-import { startProcess, normalizeOutput } from '@aragon/cli'
+import { normalizeOutput } from '@aragon/cli/dist/util'
+import { startProcess } from '@aragon/cli'
 
 const ARTIFACT_FILE = 'artifact.json'
 const MANIFEST_FILE = 'manifest.json'
 
-const PUBLISH_TIMEOUT = 120000 // 2min
+const PUBLISH_CMD_TIMEOUT = 120000 // 2min
 
-const testSandbox = './.tmp'
+const testSandbox = './.tmp/publish'
 
 test('should publish an aragon app directory successfully', async t => {
   const publishDirPath = path.resolve(`${testSandbox}/publish-dir`)
@@ -25,16 +26,15 @@ test('should publish an aragon app directory successfully', async t => {
       '--publish-dir',
       publishDirPath,
       '--skip-confirmation',
-      '--no-propagate-content'
+      '--no-propagate-content',
     ],
     execaOpts: {
       localDir: '.',
     },
     readyOutput: 'Successfully published',
-    timeout: PUBLISH_TIMEOUT,
-    logger: console.log
+    timeout: PUBLISH_CMD_TIMEOUT,
+    logger: console.log,
   })
-
 
   // check the generated artifact
   const artifactPath = path.resolve(publishDirPath, ARTIFACT_FILE)
