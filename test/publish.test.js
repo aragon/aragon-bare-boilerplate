@@ -1,7 +1,6 @@
 import test from 'ava'
 import fs from 'fs-extra'
 import path from 'path'
-import { normalizeOutput } from '@aragon/cli/dist/util'
 import { startProcess } from '@aragon/cli'
 
 const ARTIFACT_FILE = 'artifact.json'
@@ -15,7 +14,7 @@ test('should publish an aragon app directory successfully', async t => {
   const publishDirPath = path.resolve(`${testSandbox}/publish-dir`)
 
   // act
-  const { output } = await startProcess({
+  await startProcess({
     cmd: 'aragon',
     args: [
       'apm',
@@ -33,7 +32,6 @@ test('should publish an aragon app directory successfully', async t => {
     },
     readyOutput: 'Successfully published',
     timeout: PUBLISH_CMD_TIMEOUT,
-    logger: console.log,
   })
 
   // check the generated artifact
@@ -46,29 +44,7 @@ test('should publish an aragon app directory successfully', async t => {
   const manifestPath = path.resolve(publishDirPath, MANIFEST_FILE)
   const manifest = JSON.parse(fs.readFileSync(manifestPath))
 
-  // delete some output sections that are not deterministic
-  const publishVersion = output.match(/v[0-9]+.0.0 :/)[0]
-
-  const buildScriptOutput = output.substring(
-    output.indexOf('Building frontend [started]'),
-    output.indexOf('Building frontend [completed]')
-  )
-
-  const appDeploymentOutput = output.substring(
-    output.indexOf('Publish intent [completed]'),
-    output.indexOf('Publish foobar.open.aragonpm.eth [started]')
-  )
-
-  const outputToSnapshot = output
-    .replace(buildScriptOutput, '[deleted-build-script-output]')
-    .replace(
-      appDeploymentOutput,
-      'Publish intent [completed][deleted-app-deployment-output]'
-    )
-    .replace(publishVersion, '')
-
   // assert
-  t.snapshot(normalizeOutput(outputToSnapshot))
   t.snapshot(artifact)
   t.snapshot(manifest)
 })
