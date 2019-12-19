@@ -15,3 +15,6 @@ install:
   - npm install
 script:
   - npm run test
+  - npm run start
+  - npm run publish:major
+  - npm run versions
