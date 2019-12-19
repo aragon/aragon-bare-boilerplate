@@ -1,13 +1,9 @@
 /* global artifacts contract beforeEach it assert */
-
-const { assertRevert } = require('@aragon/test-helpers/assertThrow')
 const { getEventArgument } = require('@aragon/test-helpers/events')
 const { hash } = require('eth-ens-namehash')
 const deployDAO = require('./helpers/deployDAO')
 
 const App = artifacts.require('App.sol')
-
-const ANY_ADDRESS = '0xffffffffffffffffffffffffffffffffffffffff'
 
 contract('App', ([appManager, user]) => {
   let app
@@ -26,18 +22,7 @@ contract('App', ([appManager, user]) => {
       false, // setDefault - Whether the app proxy is the default proxy.
       { from: appManager }
     )
-    app = App.at(
-      getEventArgument(instanceReceipt, 'NewAppProxy', 'proxy')
-    )
-
-    // Set up the app's permissions.
-    // await acl.createPermission(
-    //   ANY_ADDRESS, // entity (who?) - The entity or address that will have the permission.
-    //   app.address, // app (where?) - The app that holds the role involved in this permission.
-    //   await app.INCREMENT_ROLE(), // role (what?) - The particular role that the entity is being assigned to in this permission.
-    //   appManager, // manager - Can grant/revoke further permissions for this role.
-    //   { from: appManager }
-    // )
+    app = App.at(getEventArgument(instanceReceipt, 'NewAppProxy', 'proxy'))
 
     await app.initialize()
   })

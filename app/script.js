@@ -1,9 +1,9 @@
-import Aragon from '@aragon/client'
+import Aragon from '@aragon/api'
 
 const app = new Aragon()
 
 const initialState = {
-  dummyValue: 0
+  dummyValue: 0,
 }
 
 app.store((state, event) => {

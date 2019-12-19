@@ -1,7 +1,19 @@
+# Editor files
+.vscode
+
 # Dependencies
 node_modules
+# this is created by windows when installing go-ipfs
+ipfs.cmd
 
-# Build dirs
+# Artifacts
+dist
+build
+
+# Cache
 .cache/
-build/
-dist/
+.tmp/
+
+# Lockfiles
+package-lock.json
+
