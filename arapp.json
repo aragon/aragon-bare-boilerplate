@@ -24,16 +24,10 @@
       "network": "rinkeby"
     },
     "mainnet": {
-      "registry": "0x314159265dd8dbb310642f98f50c066173c1259b",
+      "registry": "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e",
       "appName": "placeholder-app-name.open.aragonpm.eth",
       "wsRPC": "wss://mainnet.eth.aragon.network/ws",
       "network": "mainnet"
-    },
-    "ropsten": {
-      "registry": "0x6afe2cacee211ea9179992f89dc61ff25c61e923",
-      "appName": "placeholder-app-name.open.aragonpm.eth",
-      "wsRPC": "wss://ropsten.infura.io/ws",
-      "network": "ropsten"
     }
   },
   "path": "contracts/App.sol"
